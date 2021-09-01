@@ -49,7 +49,8 @@ class Confirm extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                 Column(
                   children: [
-                    Text("Seat ID", style: TextStyle(color: Colors.cyan)),
+                    Text("Seat ID",
+                        style: TextStyle(color: Colors.black12, fontSize: 16)),
                     Text(selectedSeatsText,
                         style: TextStyle(color: Colors.cyan))
                   ],
@@ -75,7 +76,6 @@ class Confirm extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-
               SizedBox(
                 width: 400,
                 height: 50,
@@ -95,21 +95,6 @@ class Confirm extends StatelessWidget {
                   },
                 ),
               ),
-              /*ElevatedButton(
-                  child: Text("do"),
-                  onPressed: () async {
-                    // await Firebase.initializeApp();
-                    await users.add({
-                      'movie': 'suscide',
-                      'schedule': 'suscide',
-                      'seat': 'suscide'
-                    }).then((value) => print("user added"));
-                  },
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  )))),*/
             ],
           ),
         ));
