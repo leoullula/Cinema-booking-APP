@@ -132,7 +132,7 @@ class MovieCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Column(
+    return Column(
       children: <Widget>[
         Row(
           children: <Widget>[

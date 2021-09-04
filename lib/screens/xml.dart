@@ -11,15 +11,15 @@ main() {
  <hour>11</hour>
 </schedule>
 <schedule>
-<showtime>9:30 not Available</showtime>
+<showtime>6:30 not Available</showtime>
 <hour>horrr</hour>
 </schedule>
 <schedule>
-<showtime>9:30 Available</showtime>
+<showtime>12:30 not Available</showtime>
 <hour>9</hour>
 </schedule>
 <schedule>
-<showtime>9:30 Available</showtime>
+<showtime>1:30 Available</showtime>
 <hour>12</hour>
 </schedule>
 </data>

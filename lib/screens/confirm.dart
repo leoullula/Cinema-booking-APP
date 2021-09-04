@@ -1,16 +1,14 @@
-import 'package:cinema_app/screens/final.dart';
-//import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:cinema_app/screens/store.dart';
 import 'package:flutter/material.dart';
+
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:cinema_app/Utils/utils.dart';
-//import 'package:firebase_core/firebase_core.dart';
 
 class Confirm extends StatelessWidget {
+  final Color mainColor = const Color(0xff3C3261);
   final movie;
   final String selectedSeatsText;
   final schedule = '9:30';
-  //CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   @override
   const Confirm({required this.selectedSeatsText, required this.movie});
@@ -18,12 +16,16 @@ class Confirm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            "${this.movie['original_title']}",
-            style: (TextStyle()),
-          ),
           elevation: 0,
-          //backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white12,
+          title: Text(
+            this.movie['original_title'],
+            style: TextStyle(
+              color: mainColor,
+              fontFamily: 'Arvo',
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           titleSpacing: 6,
           centerTitle: true,
         ),
@@ -50,9 +52,16 @@ class Confirm extends StatelessWidget {
                 Column(
                   children: [
                     Text("Seat ID",
-                        style: TextStyle(color: Colors.black12, fontSize: 16)),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Text(selectedSeatsText,
-                        style: TextStyle(color: Colors.cyan))
+                        style: TextStyle(color: Colors.blue))
                   ],
                 ),
                 Row(
@@ -61,7 +70,13 @@ class Confirm extends StatelessWidget {
                       Column(
                         children: [
                           Text("Schedule",
-                              style: TextStyle(color: Colors.cyan)),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20)),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Text("To-Day" + schedule,
                               style: TextStyle(color: Colors.cyan))
                         ],
@@ -90,8 +105,11 @@ class Confirm extends StatelessWidget {
                   ),
                   color: Colors.cyan,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyApps()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                MyApp(movie, selectedSeatsText, schedule)));
                   },
                 ),
               ),

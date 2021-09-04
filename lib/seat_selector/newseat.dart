@@ -1,3 +1,4 @@
+import 'package:cinema_app/Utils/utils.dart';
 import 'package:cinema_app/screens/confirm.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +9,7 @@ class Seats extends StatefulWidget {
   dynamic movie;
   var chosen;
   var seat;
+
   Seats(
     this.movie,
     this.time,
@@ -20,6 +22,7 @@ class Seats extends StatefulWidget {
 class _SeatsState extends State<Seats> {
   // ignore: non_constant_identifier_names
   var image_url = 'https://image.tmdb.org/t/p/w500/';
+  Color mainColor = const Color(0xff3C3261);
   List<int> _selectedItems = [];
   int price = 30;
   int sum = 0;
@@ -30,18 +33,25 @@ class _SeatsState extends State<Seats> {
     return Scaffold(
         //backgroundColor: Color(0xff828EFB),
         appBar: AppBar(
-          toolbarHeight: 100,
           elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text(
-            "${widget.movie['original_title']}",
-            style: GoogleFonts.poppins(
-                fontSize: 28, fontWeight: FontWeight.bold, color: Colors.grey),
-          ),
           titleSpacing: 6,
           centerTitle: true,
+          backgroundColor: white,
+          title: Text("${widget.movie['original_title']}",
+              style: TextStyle(
+                color: mainColor,
+                fontFamily: 'Arvo',
+                fontWeight: FontWeight.bold,
+              )),
+          leading: Icon(
+            Icons.arrow_back,
+            color: mainColor,
+          ),
         ),
         body: Column(children: [
+          SizedBox(
+            height: 20,
+          ),
           Container(
             padding: EdgeInsets.all(10),
             child: new Container(
@@ -225,8 +235,8 @@ class _SeatsState extends State<Seats> {
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40.0),
-                    side: BorderSide(color: Colors.cyan)),
-                color: Colors.cyan,
+                    side: BorderSide(color: Colors.blue)),
+                color: Colors.blue,
                 child: Text(
                   'Generate Ticket',
                   style: TextStyle(color: Colors.white),
