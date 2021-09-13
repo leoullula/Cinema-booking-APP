@@ -1,30 +1,35 @@
 class User {
-  final int? id;
+  final int id;
   // ignore: non_constant_identifier_names
-  final String movie_name;
+  final String date;
   final String time;
   final String seat;
 
   User({
+    this.seat,
+    this.time,
+    this.date,
     this.id,
     // ignore: non_constant_identifier_names
-    required this.movie_name,
-    required this.time,
-    required this.seat,
+    // required this.movie_name,
+    //required this.time,
+    //required this.seat,
   });
 
   User.fromMap(Map<String, dynamic> res)
       : id = res["id"],
-        movie_name = res["movie_name"],
+        date = res["date"],
         time = res["time"],
         seat = res["seat"];
 
-  Map<String, Object?> toMap() {
+  Map<String, Object> toMap() {
     return {
       'id': id,
-      'movie_name': movie_name,
+      'date': date,
       'time': time,
       'seat': seat,
     };
   }
 }
+
+class required {}

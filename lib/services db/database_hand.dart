@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:cinema_app/new db model/user.dart';
+import 'package:cinema_appp/new db model/user.dart';
 
 class DatabaseHandler {
   Future<Database> initializeDB() async {
@@ -9,7 +9,7 @@ class DatabaseHandler {
       join(path, 'example.db'),
       onCreate: (database, version) async {
         await database.execute(
-          "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, movie_name TEXT NOT NULL,time INTEGER NOT NULL, seat TEXT NOT NULL)",
+          "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT NOT NULL,time INTEGER NOT NULL, seat TEXT NOT NULL,)",
         );
       },
       version: 1,
@@ -27,7 +27,7 @@ class DatabaseHandler {
 
   Future<List<User>> retrieveUsers() async {
     final Database db = await initializeDB();
-    final List<Map<String, Object?>> queryResult = await db.query('users');
+    final List<Map<String, Object>> queryResult = await db.query('users');
     return queryResult.map((e) => User.fromMap(e)).toList();
   }
 
